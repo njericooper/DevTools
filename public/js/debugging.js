@@ -3,7 +3,9 @@ const fetcher = document.getElementById("fetcher");
 fetcher.addEventListener("click", fetchImages);
 
 function fetchImages() {
-  fetch("/api").then(data => {
+  fetch("/api")
+  .then(response.json())
+  .then(data => {
     processImages(data.imageList);
   });
 }
@@ -33,4 +35,6 @@ function processImages(images) {
     item.appendChild(image);
     list.appendChild(item);
   });
+
+  document.body.appendChild(list);
 }
